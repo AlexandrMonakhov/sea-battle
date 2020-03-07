@@ -20,7 +20,7 @@ const game = {
 
   generateShip() {
     for (let i = 0; i < this.optionShip.count.length; i++) {
-      for (let k = 0; k < this.optionShip.count[i]; k++) {
+      for (let j = 0; j < this.optionShip.count[i]; j++) {
         const size = this.optionShip.size[i];
         const ship = this.generateOprionsShip(size);
         this.ships.push(ship);
@@ -73,9 +73,9 @@ const game = {
 
   addCollision(location) {
     for (let i = 0; i < location.length; i++) {
-      const startCooedX = location[i][0] - 1;
+      const startCoordX = location[i][0] - 1;
 
-      for (let j = startCooedX; j < startCooedX + 3; j++) {
+      for (let j = startCoordX; j < startCoordX + 3; j++) {
         const startCoordY = location[i][1] - 1;
 
         for (let z = startCoordY; z < startCoordY + 3; z++) {
@@ -174,7 +174,7 @@ const fire = (event) => {
 const init = () => {
   enemy.addEventListener('click', fire);
   play.render();
-  game.generateShips();
+  game.generateShip();
 
   again.addEventListener('click', () => {
     location.reload();
